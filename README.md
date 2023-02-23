@@ -1,10 +1,8 @@
-# Getting Started with Create React App
+# Hack the North 2023 Frontend Challenge - Tong Yin Han
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I'm Tong Yin and this is my Hack the North 2023 Frontend Challenge submission.
 
-## Available Scripts
-
-In the project directory, you can run:
+To view the final project visit: https://htn-frontend.herokuapp.com/
 
 ### `npm start`
 
