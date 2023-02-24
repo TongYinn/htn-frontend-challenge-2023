@@ -12,7 +12,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Auth0ProviderWithNavigate>
+        <App />
+      </Auth0ProviderWithNavigate>
     </BrowserRouter>
   </React.StrictMode>
 );
