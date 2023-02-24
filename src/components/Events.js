@@ -9,7 +9,6 @@ import EventCard from "./EventCard";
 import "./Events.css";
 
 const Events = () => {
-  const { user } = useAuth0();
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -20,11 +19,7 @@ const Events = () => {
     fetchEvents();
   }, []);
 
-  const filteredEvents = events.filter(
-    (event) => user || event.permission === "public"
-  );
-
-  const eventsToRender = user ? events : filteredEvents;
+  const eventsToRender = events;
 
   const getRelatedEvents = (id) => {
     const relatedEventObjects = eventsToRender.filter((e) => {
@@ -42,7 +37,6 @@ const Events = () => {
     return relatedEvents;
   };
 
-  console.log("in events.js about to return", getRelatedEvents(1));
   return (
     <div className="events-container">
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>

@@ -15,15 +15,12 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { useAuth0 } from "@auth0/auth0-react";
 
 import activityIcon from "../images/activity.jpg";
 import techTalkIcon from "../images/tech_talk.jpg";
 import workshopIcon from "../images/workshop.jpg";
 
 const EventCard = ({ event, relatedEvents }) => {
-  const { user } = useAuth0();
-
   return (
     <Card maxW="md">
       <CardHeader>
@@ -69,14 +66,12 @@ const EventCard = ({ event, relatedEvents }) => {
 
       <CardFooter>
         <div>
-          {user && (
-            <Button
-              onClick={() => (window.location.href = event.private_url)}
-              color="blue.400"
-            >
-              Event Details
-            </Button>
-          )}
+          <Button
+            onClick={() => (window.location.href = event.private_url)}
+            color="blue.400"
+          >
+            Event Details
+          </Button>
         </div>
         <div>
           {event.public_url && (
