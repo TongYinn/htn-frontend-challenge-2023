@@ -5,8 +5,6 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 
 const App = () => {
-  console.log("In App.js");
-
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />

@@ -8,7 +8,6 @@ import reportWebVitals from "./reportWebVitals";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
-console.log("In Index");
 
 root.render(
   <React.StrictMode>
