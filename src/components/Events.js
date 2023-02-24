@@ -27,23 +27,32 @@ const Events = () => {
   const eventsToRender = user ? events : filteredEvents;
 
   const getRelatedEvents = (id) => {
-    let x = 0;
-    console.log(x);
-    const relatedEventObjects = eventsToRender.filter((e) => {
-      return e.related_events.includes(id);
+    // let x = 0;
+    // console.log(x);
+    let event = eventsToRender.filter((e) => {
+      return e.id === id;
     });
-    console.log("relatedEventsObjects", relatedEventObjects);
-    let relatedEvents = [];
-    relatedEventObjects.forEach((event) => {
-      console.log(event.name);
-      relatedEvents.push({
-        name: event.name,
-        private_url: event.private_url,
-        public_url: event.public_url,
-      });
+    let relatedIds = event[0].related_events;
+    let set = new Set(relatedIds);
+    const relatedEventsFinal = eventsToRender.filter((e) => {
+      return set.containsValue(e.id);
     });
-    x = x + 1;
-    return relatedEvents;
+    return relatedEventsFinal;
+    // const relatedEventObjects = eventsToRender.filter((e) => {
+    //   return e.related_events.includes(id);
+    // });
+    // console.log("relatedEventsObjects", relatedEventObjects);
+    // let relatedEvents = [];
+    // relatedEventObjects.forEach((event) => {
+    //   console.log(event.name);
+    //   relatedEvents.push({
+    //     name: event.name,
+    //     private_url: event.private_url,
+    //     public_url: event.public_url,
+    //   });
+    // });
+    // x = x + 1;
+    // return relatedEvents;
   };
 
   console.log("in events.js about to return", getRelatedEvents(1));
