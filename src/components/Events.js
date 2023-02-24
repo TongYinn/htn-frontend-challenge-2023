@@ -11,7 +11,6 @@ import "./Events.css";
 const Events = () => {
   const { user } = useAuth0();
   const [events, setEvents] = useState([]);
-  const [finalEvents, setFinalEvents] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -28,69 +27,24 @@ const Events = () => {
   const eventsToRender = user ? events : filteredEvents;
 
   const getRelatedEvents = (id) => {
+    let x = 0;
+    console.log(x);
     const relatedEventObjects = eventsToRender.filter((e) => {
       return e.related_events.includes(id);
     });
-    console.log("eventsToRender", eventsToRender);
-    console.log(
-      "relatedEventsObject after filter",
-      eventsToRender.filter((e) => {
-        e.related_events.includes(id);
-      })
-    );
+    console.log("relatedEventsObjects", relatedEventObjects);
     let relatedEvents = [];
     relatedEventObjects.forEach((event) => {
+      console.log(event.name);
       relatedEvents.push({
         name: event.name,
         private_url: event.private_url,
         public_url: event.public_url,
       });
     });
-
+    x = x + 1;
     return relatedEvents;
   };
-
-  //   eventsToRender.forEach((event) => {
-  //     const relatedEventObjects = eventsToRender.filter((e) => {
-  //       event.related_events.includes(e.id);
-  //     });
-  //     let relatedEvents = [];
-  //     relatedEventObjects.forEach((event) => {
-  //       relatedEvents.push({
-  //         name: event.name,
-  //         private_url: event.private_url,
-  //         public_url: event.public_url,
-  //       });
-  //     });
-  //     event.related_events = relatedEvents;
-  //     relatedEvents = [];
-  //   });
-
-  //   eventsToRender.forEach((event) => {
-  //     const relatedEvents = eventsToRender.filter((e) =>
-  //       event.related_events.includes(e.id)
-  //     );
-  //     event.related_events = relatedEvents;
-  //     return event;
-  //   });
-
-  //   console.log(eventsToRender.filter((e) => events[1].related_events.includes(e.id)))
-
-  //   for (let event of eventsToRender) {
-  //     console.log(event.id);
-  //     const relatedEvents = eventsToRender.filter((e) =>
-  //       event.related_events.includes(e.id)
-  //     );
-  //     event.related_events = relatedEvents;
-  //     console.log(event.related_events);
-  //   }
-
-  // for await (let event of eventsToRender) {
-  //     events.related_events.forEach((e) => {
-  //         const response = axios(`https://api.hackthenorth.com/v3/events/${e}`);
-  //     })
-  //     event.related_events
-  // }
 
   console.log("in events.js about to return", getRelatedEvents(1));
   return (

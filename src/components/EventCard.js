@@ -91,29 +91,23 @@ const EventCard = ({ event, relatedEvents }) => {
         </div>
       </CardFooter>
 
-      {console.log("related events", relatedEvents)}
       {relatedEvents.length !== 0 && (
         <Menu>
           <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
             View Related Events
           </MenuButton>
           <MenuList>
-            {relatedEvents.map(
-              (event) => (
-                console.log("event in related events", event),
-                (
-                  <MenuItem
-                    onClick={() =>
-                      (window.location.href = event.public_url
-                        ? event.public_url
-                        : event.private_url)
-                    }
-                  >
-                    {event.name}
-                  </MenuItem>
-                )
-              )
-            )}
+            {relatedEvents.map((event) => (
+              <MenuItem
+                onClick={() =>
+                  (window.location.href = event.public_url
+                    ? event.public_url
+                    : event.private_url)
+                }
+              >
+                {event.name}
+              </MenuItem>
+            ))}
           </MenuList>
         </Menu>
       )}
