@@ -59,3 +59,13 @@ Another issue came across while I was implementing Auth0. This is because I was 
 The final issue I ran into was setting up related events. I found it difficult to pull the name and the private / public URLs for the events from the EventID. This resulted in th eventcard component only taking in one event and not the other related events as well. I ended up creating a function that creates a related events array that gets passed into each eventcard component to mend this.
 
 ## Proud Areas of Code
+
+I am particularly proud of the way I organized and structured the project as a whole to prioritize scalability. One specific moment in the build process that I am especially proud of was debugging during deployment. I ran across various issues deploying the website, leveraging various services such as Heroku, Vercel, etc.. I was able to navigate these hurdles and effectively deployed it in the end by diving deep into existing documentation and the overarching community behind these services.
+
+## Future Implementations
+
+If I were to extend my application, I would implement a backend server using Node.js and Express to pull the data from the Hack the North API. It would be beneficial since people wouldn’t have access to the Hack the North API as in its current state, anyone can see the API call in the console and view the data. This would work to improve our internal security as we would be able to restrict any private information. On top of this, having a server and corresponding database would enable me to keep track of each user that logs in and store relevant information. 
+
+Other client-facing features I would implement given more time would be centered around the events. For instance, a direct event search function that would enable users to quickly locate events that they are particularly interested in. Following this, a favoriting system would allow users / hackers to pin certain events to improve visibility
+
+Finally, I would make this web app progressive / responsive to improve the user experience across various devices. This would ensure that accessibility needs are met regardless of the device of the user.
