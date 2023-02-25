@@ -1,68 +1,61 @@
-# Hack the North 2023 Frontend Challenge - Tong Yin Han
+# Hack the North 2023 Frontend Challenge
 
 I'm Tong Yin and this is my Hack the North 2023 Frontend Challenge submission.
 
-To view the final project visit: https://htn-frontend.herokuapp.com/
+To view the project visit: https://tongyinn.github.io/without-auth0-htn-frontend-challenge-2023/
 
-### `npm start`
+### Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Git clone the repository using `git clone https://github.com/TongYinn/htn-frontend-challenge-2023.git`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Open the cloned folder in the code editor of your choice (i.e VsCode) and cd into project's root directory
 
-### `npm test`
+Install all required dependencies by running `npm install`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run `npm start` to start the application in your browser
 
-### `npm run build`
+Feel free to log in by using the following:
+email: htn.2023.frontend.challenge@gmail.com
+password: password1!1
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Write-up
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Structure and Design
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+While devising my project’s structure, the main emphasis was placed on ensuring scalability and extensibility while simultaneously making sure that the codebase is easily maintainable.
 
-### `npm run eject`
+To start off, App.js was built with various routes in mind. One route was the main route while the other was a callback route, which is accessed when a user logs in. The goal when designing this file was to ensure that it was kept relatively simple and straightforward with minimal bloating as it is a top-level component.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Next, Auth0 was employed as it has a proprietary login page that aids in determining what to display based on if the user is logged in or not, seamlessly aligning with the differentiation between private and public events.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Events.js file is responsible for displaying all of the events and fetching data from the Hack the North API. On top of this, it is responsible for calling the reusable component, EventCard.js, that functions as a template event card for all events.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Finally, the NavBar.js allows users to easily login and creates a call to action for users to the login page, created by Auth0.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Tools and Technologies
 
-## Learn More
+#### Auth0
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I chose to use Auth0 as I understood the need for an authentication system given the requirements for users to be able to login to see private events. I found that Auth0 is a highly flexible and dynamic solution for authentication that reduces the need for in-depth cybersecurity experience. Additionally, it is proven to be compatible with React with a pre-existing SDK.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### React
 
-### Code Splitting
+I chose React as it is a highly supported front-end framework that has developed a large supportive community of developers. This means that I am able to leverage this existing network for any assistance/support needed with high level documentation on the internet for a variety of use cases. On top of this, given the nature of this project involving various event cards and sections, I was able to leverage the component-based nature of React to expedite development and maintain scalability.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Chakra UI
 
-### Analyzing the Bundle Size
+Chakra UI is an extremely flexible and customizable component library that supports React. Every component is customizable and provides a robust library of components and stylings to employ.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Axios
 
-### Making a Progressive Web App
+I elected to use Axios as my fetching library as it is relatively straightforward to use and can leverage interceptors. The interceptors allowed me to run code before the request/response has even started.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Problems
 
-### Advanced Configuration
+One primary issue I came across in the build process was styling the web app. Initially, I tried building out my own stylized components but it came across as unprofessional from a visual and UI standpoint. I opted to leverage ChakraUI and their pre-built components library to expedite this work and ultimately resulting in a more finished and polished look.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Another issue came across while I was implementing Auth0. This is because I was primarily using version 2 of Auth0 while a lot of documentation and tutorials I was reading into were leveraging version 1. I worked around this by implementing browser routes to bridge the gap between my codebase and the existing documentation.
 
-### Deployment
+The final issue I ran into was setting up related events. I found it difficult to pull the name and the private / public URLs for the events from the EventID. This resulted in th eventcard component only taking in one event and not the other related events as well. I ended up creating a function that creates a related events array that gets passed into each eventcard component to mend this.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Proud Areas of Code
