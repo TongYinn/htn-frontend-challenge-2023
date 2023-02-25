@@ -66,6 +66,8 @@ I am particularly proud of the way I organized and structured the project as a w
 
 If I were to extend my application, I would implement a backend server using Node.js and Express to pull the data from the Hack the North API. It would be beneficial since people wouldn’t have access to the Hack the North API as in its current state, anyone can see the API call in the console and view the data. This would work to improve our internal security as we would be able to restrict any private information. On top of this, having a server and corresponding database would enable me to keep track of each user that logs in and store relevant information. 
 
-Other client-facing features I would implement given more time would be centered around the events. For instance, a direct event search function that would enable users to quickly locate events that they are particularly interested in. Following this, a favoriting system would allow users / hackers to pin certain events to improve visibility
+Other client-facing features I would implement given more time would be centered around the events. For instance, a direct event search function that would enable users to quickly locate events that they are particularly interested in. Following this, a favoriting system would allow users / hackers to pin certain events to improve visibility.
+
+Additionally, another feature to be implemented would be language capabilities. To be more specific, the app would be able to translate the text to ensure that all hackers are finding the information to be accessible. 
 
 Finally, I would make this web app progressive / responsive to improve the user experience across various devices. This would ensure that accessibility needs are met regardless of the device of the user.
